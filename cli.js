@@ -24,8 +24,10 @@ if (!input && process.stdin.isTTY) {
 	process.exit(1);
 }
 
-if (input) {
-	init(input);
-} else {
-	getStdin().then(init);
-}
+(async () => {
+	if (input) {
+		init(input);
+	} else {
+		init(await getStdin());
+	}
+})();
