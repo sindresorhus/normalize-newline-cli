@@ -1,8 +1,8 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const getStdin = require('get-stdin');
-const fn = require('normalize-newline');
+import process from 'node:process';
+import meow from 'meow';
+import getStdin from 'get-stdin';
+import normalizeNewline from 'normalize-newline';
 
 const cli = meow(`
 	Usage
@@ -11,12 +11,14 @@ const cli = meow(`
 
 	Example
 	  $ cat mixed-newlines.txt | normalize-newline > lf-newlines.txt
-`);
+`, {
+	importMeta: import.meta,
+});
 
 const input = cli.input[0];
 
 function init(data) {
-	console.log(fn(data));
+	console.log(normalizeNewline(data));
 }
 
 if (!input && process.stdin.isTTY) {
