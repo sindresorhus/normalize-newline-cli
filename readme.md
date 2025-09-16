@@ -23,4 +23,4 @@ $ normalize-newline --help
 
 ## Related
 
-- [normalize-newline](https://github.com/sindresorhus/normalize-newline) - API for this module
+- [normalize-newline](https://github.com/sindresorhus/normalize-newline) - API for this package
